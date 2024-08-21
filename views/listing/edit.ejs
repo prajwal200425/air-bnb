@@ -1,0 +1,60 @@
+<% layout("/layouts/boilerplate") %>
+    <title>EditC</title>
+    </head>
+
+    <body>
+
+        <div class="row">
+            <div class="col-8 offset-2"><br><br>
+                <h2>Edit Listing</h2><br><br>
+                <form method="POST" action="/listing/<%= listing._id%>?_method=PUT" novalidate class="needs-validation">
+                    <div>
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" name="listing[title]" value="<%= listing.title%>" required>
+                        <div class="valid-feedback"> Title look good!</div>
+                        <div class="invalid-feedback"> Title should be required</div>
+                    </div>
+
+                    <div>
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="listing[description]" class="form-control" value="<%= listing.description%>"
+                            type="text" required></textarea>
+                            <div class="invalid-feedback"> Enter Description should be short & required</div>
+                    </div>
+                    <div>
+                        <label for="image" class="form-label">Image link / URL</label>
+                        <input type="text " class="form-control" name="listing[image]" value="<%= listing.image%>">
+                        <div class="invalid-feedback"> URL/Link should be valid </div>
+                    </div>
+
+                    <div>
+
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" class="form-control" value="<%= listing.price%>" type="number " required>
+                        <div class="invalid-feedback"> Price should be valid & required</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="md-3 col-md-4">
+                            <label for="locationimage" class="form-label">Location</label>
+                            <input type="text " class="form-control" name="listing[location]"
+                                value="<%= listing.location%>" required>
+                                <div class="invalid-feedback"> Location should be valid & required</div>
+                        </div>
+
+                        <div class="md-3 col-md-8">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text " class="form-control" name="listing[country]"
+                                value="<%= listing.location%>" required>
+                                <div class="invalid-feedback"> Country name should be valid & required</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 0.85rem;">
+                        <button  class="btn btn-success">Edit</button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </body>
